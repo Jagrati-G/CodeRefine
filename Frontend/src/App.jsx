@@ -31,7 +31,7 @@ function App() {
     setReview("");    // Purana review saaf kar do taaki nayi loading feel ho (Optional)
 
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', { code });
+      const response = await axios.post('https://coderefine-umfb.onrender.com', { code });
       setReview(response.data);
     } catch (err) {
       console.error("Error fetching review:", err);
