@@ -19,21 +19,8 @@
 ## 🧰 Tech Stack
 
 <div align="center">
-
-### 💡 Frontend  
-<img src="https://skillicons.dev/icons?i=react,html,css,js" />
-
-### ⚙️ Backend  
-<img src="https://skillicons.dev/icons?i=nodejs,express" />
-
-### 🗄️ Database  
-<img src="https://skillicons.dev/icons?i=mongodb" />
-
-### 🌐 API  
-<img src="https://skillicons.dev/icons?i=google" />
-
-### 🚀 Deployment  
-<img src="https://skillicons.dev/icons?i=vercel,render" />
+  
+<img src="https://skillicons.dev/icons?i=react,html,css,js,nodejs,express,mongodb,google,vercel,render" />
 
 </div>
 
@@ -50,9 +37,10 @@
 ---
 
 ## 📸 Screenshots
-
-![UI](./screenshots/ui.png)  
-![Analysis](./screenshots/analysis.png)
+#Home
+![Home](home.png)  
+#Result
+![Result](result.png)
 
 ---
 
