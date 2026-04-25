@@ -31,7 +31,7 @@ function App() {
     setReview("");    // Purana review saaf kar do taaki nayi loading feel ho (Optional)
 
     try {
-      const response = await axios.post('https://coderefine-umfb.onrender.com', { code });
+      const response = await axios.post('https://coderefine-umfb.onrender.com/ai/get-review', { code });
       setReview(response.data);
     } catch (err) {
       console.error("Error fetching review:", err);
@@ -50,17 +50,17 @@ function App() {
 
       <main>
         <div className="left">
-          <div className="code">
+          <div className="code"> {/* Is CSS class mein scrollbar aayega */}
             <Editor
               value={code}
               onValueChange={code => setCode(code)}
               highlight={code => prism.highlight(code, prism.languages.javascript, 'javascript')}
-              padding={10}
+              padding={20}
               style={{
                 fontFamily: '"Fira code", "Fira Mono", monospace',
-                fontSize: 17,
-                height: '100%',
-                width: '100%',
+                fontSize: 16,
+                minHeight: "100%", // Ye line add karo
+                backgroundColor: "transparent" // Taaki div ka background dikhe
               }}
             />
           </div>

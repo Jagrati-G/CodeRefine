@@ -94,12 +94,37 @@ main {
   width: 100%;
 }
 
-/* App.css mein */
 main .left {
-  background-color: rgb(6, 5, 7);
-  position: relative;
-  height: 100%;
-  overflow: visible; /* Hidden se badal kar visible karke dekho */
+    background-color: rgb(6, 5, 7);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Bahar ka scroll band */
+    display: flex;
+}
+
+/* 2. Scrollbar yahan aana chahiye */
+.left .code {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.7rem;
+    background-color: rgb(58, 68, 90);
+    
+    /* Scroll properties */
+    overflow-y: auto !important; 
+    overflow-x: auto !important;
+    position: relative;
+}
+
+/* 3. Editor ke andar ka "Zabaan" (Text) handle karo */
+/* Agar tum Prism ya simple-code-editor use kar rahe ho toh ye zaroori hai */
+.left .code pre, 
+.left .code code, 
+.left .code textarea {
+    height: auto !important; /* Fixed height hatao */
+    min-height: 100%;
+    overflow: visible !important; /* Inka apna scroll band karo */
+    padding-bottom: 80px !important; /* Taaki Review button ke peeche code na chhup jaye */
 }
 
 .left .code,.code pre ,.code pre code {
@@ -113,15 +138,15 @@ main .left {
 
 main .left .review {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 20px;
+    right: 20px;
     padding: 0.6rem 2rem;
     background-color: #fff;
     color: #060606;
     border-radius: 0.7rem;
     font-weight: 600;
     cursor: pointer;
-    z-index: 10;
+    z-index: 1000;
     
     /* Animation ke liye smooth transition */
     transition: all 0.2s ease-in-out;
@@ -148,6 +173,21 @@ main .left .review:active {
     pointer-events: none; /* Click block karne ke liye */
 }
 
+/* 4. Scrollbar ko dikhao (Custom Styling) */
+.left .code::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.left .code::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 2px solid rgb(58, 68, 90);
+}
+
+.left .code::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
 /* Sabse powerful selector Prism ke liye */
 pre[class*="language-"] > code {
     display: block !important;
