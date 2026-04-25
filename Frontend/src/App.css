@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+html,
+body,
+  #root {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* Pura layout manage karne ke liye */
+.app-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+}
+
+/* Navbar Styling */
+.navbar {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: #000000;
+    border-bottom: 0.1px;
+}
+
+.brand-logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.brand-logo span {
+    color: rgb(75, 117, 210);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    overflow: hidden; /* Scroll sirf boxes ke andar hoga */
+}
+
+.empty-state {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .left, 
+main .right {
+ height: 100%;
+ flex-basis: 50%;
+ border-radius: 0.7rem;
+}
+
+main {
+    height: calc(100vh - 60px); /* Pura height minus navbar height */
+    width: 100%;
+    display: flex;
+    gap: 0.8rem; /* Dono boxes ke beech ka gap thoda kam kiya */
+    padding: 0.8rem; /* Bahar ki khali jagah kam ki */
+}
+
+.left, .right {
+    height: 100%;
+    flex: 1; /* Dono boxes ko barabar aur maximum jagah dega */
+    border-radius: 0.8rem;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Response wale box ka padding handle karne ke liye */
+.right {
+    padding: 1.5rem; /* Andar ka text chipke na isliye padding rakho */
+    background-color: #000000;
+    overflow-y: auto; /* Agar response bada ho toh scroll ho jaye */
+}
+.code {
+  height: 100%;
+  width: 100%;
+}
+
+/* App.css mein */
+main .left {
+  background-color: rgb(6, 5, 7);
+  position: relative;
+  height: 100%;
+  overflow: visible; /* Hidden se badal kar visible karke dekho */
+}
+
+.left .code,.code pre ,.code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: rgb(58, 68, 90);
+  white-space: pre-wrap;
+}
+
+main .left .review {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.6rem 2rem;
+    background-color: #fff;
+    color: #060606;
+    border-radius: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 10;
+    
+    /* Animation ke liye smooth transition */
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+}
+
+/* Hover effect: Jab mouse button par jaye */
+main .left .review:hover {
+    background-color: #0e9259;
+    transform: translateY(-2px); /* Halka sa upar uthega */
+    box-shadow: 0 4px 15px rgba(102, 241, 43, 0.2);
+}
+
+/* Active effect: Jab button CLICK ho (Press effect) */
+main .left .review:active {
+    background-color: #33ce2d; /* Click karte hi thoda dark/grey ho jayega */
+    transform: scale(0.95);    /* Halka sa chota hoga (press effect) */
+    box-shadow: 0 2px 5px rgba(24, 226, 57, 0.2);
+}
+
+/* App.css mein */
+.review.loading {
+    background-color: #45ab23;
+    pointer-events: none; /* Click block karne ke liye */
+}
+
+/* Sabse powerful selector Prism ke liye */
+pre[class*="language-"] > code {
+    display: block !important;
+    white-space: pre !important; /* Isse exact waisa dikhega jaisa backtick mein hai */
+    overflow-x: auto;
+}
+
+
+main .right {
+  background-color: rgb(38, 37, 38);
+  padding: 2rem;
+}
+
+.right {
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    color: #dadada;
+    overflow-y: auto; /* Scroll bar tabhi aayega jab response lamba ho */
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.right h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+/* AI ke bheje gaye headings ke liye */
+.right h1, .right h2, .right h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+/* AI ke bheje gaye code snippets ke liye */
+.right pre {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid #444;
+}
+
+.right code {
+    font-family: 'Fira Code', monospace;
+    background-color: #333;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+/* Scrollbar ko thoda patla aur sundar banane ke liye (Chrome/Safari) */
+.right::-webkit-scrollbar {
+    width: 6px;
+}
+.right::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 10px;
+}
